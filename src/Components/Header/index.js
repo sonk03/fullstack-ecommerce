@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/images/logo.png';
+import Logo from '../../assets/images/logo.jpg';
 import Button from '@mui/material/Button';
 import CountryDropdown from '../CountryDropdown';
-import { IoMdSearch } from "react-icons/io";
 import { LuUserRound } from "react-icons/lu";
 import { SlBasket } from "react-icons/sl";
+import SearchBox from './SearchBox';
+import Navigation from './Navigation';
 
 const Header = () => {
     return (
@@ -27,26 +28,25 @@ const Header = () => {
                             <div className='col-sm-10 d-flex align-items-center part2' style={{ gap: '15px' }}>
                                 <CountryDropdown style={{ marginRight: '10px' }}/>
 
-                                {/* Header Search Start Here */}
-                                <div className='headerSearch ml-3 mr-3'>
-                                     <input type='text' placeholder='Search for products...'  />
-                                       <Button><IoMdSearch/></Button>
-                                </div>
-                                {/* Header Search Ends Here */}
-                                <div className='part3 d-flex align-items-center ml-auto'>
-                                    <Button className='circle mr-5'style={{ marginRight: '8px' }}><LuUserRound/></Button>
-                                    <div className='ml-auto cartTab d-flex align-items-center'>
-                                        <span className='price'style={{ marginRight: '8px' }}> $3.405</span>
-                                          <div className='position-relative ml-2'>
-                                          <Button className='circle'><SlBasket/></Button>
+                                 <SearchBox/>
+
+                                <div className='part3 d-flex align-items-center' style={{ gap: '15px' }}>
+                                    <Button className='circle'><LuUserRound/></Button>
+                                    <div className='cartTab d-flex align-items-center' style={{ gap: '10px' }}>
+                                        <span className='price'>$3.405</span>
+                                        <div className='position-relative'>
+                                            <Button className='circle'><SlBasket/></Button>
                                             <span className='count d-flex align-items-center justify-content-center'>1</span>
-                                      </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </header>
+
+                <Navigation/>
+             
             </div>
         </>
     )
